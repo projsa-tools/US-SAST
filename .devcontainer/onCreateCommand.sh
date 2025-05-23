@@ -7,7 +7,7 @@ gh codeql version # first command starts the download of the CodeQL CLI
 gh codeql install-stub ~/.local/bin/
 
 # Install the tutorial-queries pack
-cd tutorial-queries
+cd codeql-custom-queries-javascript
 echo "Installing tutorial-queries pack"
 gh codeql pack install
 cd ..
