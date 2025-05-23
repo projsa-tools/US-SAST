@@ -1,0 +1,899 @@
+[2025-05-23 10:15:38] This is codeql database create my-js-db --language=javascript --source-root=store
+[2025-05-23 10:15:38] Log file was started late.
+[2025-05-23 10:15:38] [PROGRESS] database create> Initializing database at /workspaces/US-SAST/my-js-db.
+[2025-05-23 10:15:38] Running plumbing command: codeql database init --language=javascript --extractor-options-verbosity=1 --qlconfig-file=/workspaces/US-SAST/qlconfig.yml --source-root=/workspaces/US-SAST/store --allow-missing-source-root=false --allow-already-existing -- /workspaces/US-SAST/my-js-db
+[2025-05-23 10:15:38] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/.codeqlmanifest.json
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/properties/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/ruby/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/go/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/yaml/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/python/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/html/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/csharp/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/java/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/cpp/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/csv/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/swift/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/actions/codeql-extractor.yml.
+[2025-05-23 10:15:38] [DETAILS] resolve languages> Parsing /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/xml/codeql-extractor.yml.
+[2025-05-23 10:15:38] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/properties"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/yaml"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/html"
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/csv"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/swift"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/xml"
+                            }
+                          ]
+                        }
+                      }
+[2025-05-23 10:15:39] [PROGRESS] database init> Calculating baseline information in /workspaces/US-SAST/store
+[2025-05-23 10:15:39] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-05-23 10:15:39] [DETAILS] database init> Running command in /workspaces/US-SAST/store: /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-05-23 10:15:39] Using configure-baseline script /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/configure-baseline.sh.
+[2025-05-23 10:15:39] [PROGRESS] database init> Running command in /workspaces/US-SAST/store: [/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/configure-baseline.sh]
+[2025-05-23 10:15:39] [SPAMMY] database init> Found 23 baseline files for javascript.
+[2025-05-23 10:15:39] [PROGRESS] database init> Calculated baseline information for languages: javascript (116ms).
+[2025-05-23 10:15:39] [PROGRESS] database init> Resolving extractor javascript.
+[2025-05-23 10:15:39] [DETAILS] database init> Found candidate extractor root for javascript: /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript.
+[2025-05-23 10:15:39] [PROGRESS] database init> Successfully loaded extractor JavaScript/TypeScript (javascript) from /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript.
+[2025-05-23 10:15:39] [PROGRESS] database init> Created skeleton CodeQL database at /workspaces/US-SAST/my-js-db. This in-progress database is ready to be populated by an extractor.
+[2025-05-23 10:15:39] Plumbing command codeql database init completed.
+[2025-05-23 10:15:39] [PROGRESS] database create> Running build command: []
+[2025-05-23 10:15:39] Running plumbing command: codeql database trace-command --working-dir=/workspaces/US-SAST/store --index-traceless-dbs --no-db-cluster -- /workspaces/US-SAST/my-js-db
+[2025-05-23 10:15:39] Using autobuild script /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/autobuild.sh.
+[2025-05-23 10:15:39] [PROGRESS] database trace-command> Running command in /workspaces/US-SAST/store: [/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/autobuild.sh]
+[2025-05-23 10:15:39] [build-stdout] Single-threaded extraction.
+[2025-05-23 10:15:39] [build-stdout] Extracting /workspaces/US-SAST/store/test/store.html
+[2025-05-23 10:15:40] [build-stdout] Done extracting /workspaces/US-SAST/store/test/store.html (283 ms)
+[2025-05-23 10:15:40] [build-stdout] Extracting /workspaces/US-SAST/store/test/store_amd.htm
+[2025-05-23 10:15:40] [build-stdout] Done extracting /workspaces/US-SAST/store/test/store_amd.htm (54 ms)
+[2025-05-23 10:15:40] [build-stdout] Extracting /workspaces/US-SAST/store/test/store_dom.htm
+[2025-05-23 10:15:40] [build-stdout] Done extracting /workspaces/US-SAST/store/test/store_dom.htm (9 ms)
+[2025-05-23 10:15:40] [build-stdout] Found Node.js at: node
+[2025-05-23 10:15:40] [build-stdout] Found Node.js version: v20.19.0
+[2025-05-23 10:15:40] [build-stdout] Memory for TypeScript process: 2000 MB, and 400 MB reserve
+[2025-05-23 10:15:40] [build-stdout] Extracting /workspaces/US-SAST/store/index.d.ts
+[2025-05-23 10:15:40] [build-stdout] Done extracting /workspaces/US-SAST/store/index.d.ts (123 ms)
+[2025-05-23 10:15:40] [build-stdout] Extracting /workspaces/US-SAST/store/libs/jquery/jquery.js
+[2025-05-23 10:15:43] [build-stdout] Done extracting /workspaces/US-SAST/store/libs/jquery/jquery.js (2520 ms)
+[2025-05-23 10:15:43] [build-stdout] Extracting /workspaces/US-SAST/store/libs/qunit/qunit.js
+[2025-05-23 10:15:43] [build-stdout] Done extracting /workspaces/US-SAST/store/libs/qunit/qunit.js (431 ms)
+[2025-05-23 10:15:43] [build-stdout] Extracting /workspaces/US-SAST/store/dist/store2.js
+[2025-05-23 10:15:43] [build-stdout] Done extracting /workspaces/US-SAST/store/dist/store2.js (111 ms)
+[2025-05-23 10:15:43] [build-stdout] Extracting /workspaces/US-SAST/store/libs/requirejs.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/libs/requirejs.js (289 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.array.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.array.js (13 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.async.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.async.js (25 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.bind.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.bind.js (20 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.cache.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.cache.js (15 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.cookie.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.cookie.js (20 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.cookies.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.cookies.js (16 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.deep.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.deep.js (9 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.dom.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.dom.js (13 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.dot.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.dot.js (12 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.measure.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.measure.js (15 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.old.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.old.js (31 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.on.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.on.js (37 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.onlyreal.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.onlyreal.js (11 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.overflow.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.overflow.js (30 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store.quota.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store.quota.js (6 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/src/store2.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/src/store2.js (65 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/test/store_test.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/test/store_test.js (244 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/.travis.yml
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/.travis.yml (48 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/Gruntfile.js
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/Gruntfile.js (28 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /workspaces/US-SAST/store/package.json
+[2025-05-23 10:15:44] [build-stderr] No externs trap cache found
+[2025-05-23 10:15:44] [build-stdout] Done extracting /workspaces/US-SAST/store/package.json (14 ms)
+[2025-05-23 10:15:44] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/jquery-3.2.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/jquery-3.2.js (297 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/bdd.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/bdd.js (11 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/should.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/should.js (21 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/vows.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/lib/vows.js (52 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_xml.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_xml.js (6 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webgl.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webgl.js (293 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_css.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_css.js (160 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_selectors.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_selectors.js (11 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/fetchapi.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/fetchapi.js (37 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_notifications.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_notifications.js (19 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_screen_orientation.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_screen_orientation.js (5 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_css.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_css.js (16 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/url.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/url.js (16 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom1.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom1.js (71 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_event.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_event.js (3 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/streamsapi.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/streamsapi.js (38 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_gamepad.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_gamepad.js (9 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_xml.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_xml.js (26 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/page_visibility.js
+[2025-05-23 10:15:45] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/page_visibility.js (2 ms)
+[2025-05-23 10:15:45] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_navigation_timing.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_navigation_timing.js (22 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_event3.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_event3.js (5 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_permissions.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_permissions.js (15 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_batterystatus.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_batterystatus.js (6 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/html5.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/html5.js (300 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_midi.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_midi.js (30 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/chrome.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/chrome.js (47 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_geolocation.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_geolocation.js (12 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_dom.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_dom.js (92 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_ext.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_ext.js (4 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_webcrypto.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_webcrypto.js (43 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_encoding.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_encoding.js (6 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_event.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_event.js (44 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_pointer_events.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_pointer_events.js (7 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_event.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/gecko_event.js (12 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_css3d.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_css3d.js (15 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_css.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_css.js (85 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_touch_event.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_touch_event.js (12 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom2.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom2.js (130 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_device_sensor_event.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_device_sensor_event.js (8 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_dom.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_dom.js (79 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_usercontent.js
+[2025-05-23 10:15:46] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_usercontent.js (10 ms)
+[2025-05-23 10:15:46] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_serviceworker.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_serviceworker.js (45 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_event.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_event.js (32 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/flash.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/flash.js (17 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_dom.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webkit_dom.js (19 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/whatwg_encoding.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/whatwg_encoding.js (5 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom3.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom3.js (46 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/iphone.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/iphone.js (22 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom4.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_dom4.js (3 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_css.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_css.js (15 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/intl.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/intl.js (15 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webstorage.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/webstorage.js (7 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_range.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_range.js (14 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_indexeddb.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_indexeddb.js (57 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_anim_timing.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_anim_timing.js (9 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/mediasource.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/mediasource.js (17 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/window.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/window.js (11 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_elementtraversal.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_elementtraversal.js (5 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_rtc.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_rtc.js (156 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_requestidlecallback.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/w3c_requestidlecallback.js (3 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_vml.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/ie_vml.js (5 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/fileapi.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/web/fileapi.js (53 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/rhino.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/rhino.js (8 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/v8.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/v8.js (7 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/jsshell.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/jsshell.js (45 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/spidermonkey.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/vm/spidermonkey.js (5 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es3.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es3.js (134 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es5.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es5.js (16 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/proxy.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/proxy.js (1 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es6_collections.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es6_collections.js (9 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es2016.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es2016.js (2 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es2017.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es2017.js (3 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/intl.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/intl.js (23 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es6.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/es/es6.js (91 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/buffer.js
+[2025-05-23 10:15:47] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/buffer.js (15 ms)
+[2025-05-23 10:15:47] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/child_process.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/child_process.js (66 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/url.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/url.js (14 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/repl.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/repl.js (13 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/v8.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/v8.js (11 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/globals.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/globals.js (140 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/https.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/https.js (34 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/process.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/process.js (5 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/readline.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/readline.js (25 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/dns.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/dns.js (31 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/timers.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/timers.js (12 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/os.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/os.js (47 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/events.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/events.js (12 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/tls.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/tls.js (47 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/sys.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/sys.js (3 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/module.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/module.js (9 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/tty.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/tty.js (16 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/vm.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/vm.js (17 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/http.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/http.js (46 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/domain.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/domain.js (5 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/path.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/path.js (22 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/punycode.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/punycode.js (7 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/stream.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/stream.js (64 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/assert.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/assert.js (15 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/cluster.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/cluster.js (69 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/querystring.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/querystring.js (9 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/string_decoder.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/string_decoder.js (4 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/constants.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/constants.js (91 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/dgram.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/dgram.js (13 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/fs.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/fs.js (146 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/assert_legacy.js
+[2025-05-23 10:15:48] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/assert_legacy.js (2 ms)
+[2025-05-23 10:15:48] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/zlib.js
+[2025-05-23 10:15:49] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/zlib.js (34 ms)
+[2025-05-23 10:15:49] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/net.js
+[2025-05-23 10:15:49] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/net.js (43 ms)
+[2025-05-23 10:15:49] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/util.js
+[2025-05-23 10:15:49] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/util.js (27 ms)
+[2025-05-23 10:15:49] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/console.js
+[2025-05-23 10:15:49] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/console.js (4 ms)
+[2025-05-23 10:15:49] [build-stdout] Extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/crypto.js
+[2025-05-23 10:15:49] [build-stdout] Done extracting /home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/tools/data/externs/nodejs/crypto.js (91 ms)
+[2025-05-23 10:15:49] Plumbing command codeql database trace-command completed.
+[2025-05-23 10:15:49] [PROGRESS] database create> Finalizing database at /workspaces/US-SAST/my-js-db.
+[2025-05-23 10:15:49] Running plumbing command: codeql database finalize --no-db-cluster -- /workspaces/US-SAST/my-js-db
+[2025-05-23 10:15:49] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /workspaces/US-SAST/my-js-db...
+[2025-05-23 10:15:49] Running plumbing command: codeql dataset import --dbscheme=/home/codespace/.local/share/gh/extensions/gh-codeql/dist/release/v2.21.3/javascript/semmlecode.javascript.dbscheme -- /workspaces/US-SAST/my-js-db/db-javascript /workspaces/US-SAST/my-js-db/trap/javascript
+[2025-05-23 10:15:49] Clearing disk cache since the version file /workspaces/US-SAST/my-js-db/db-javascript/default/cache/version does not exist
+[2025-05-23 10:15:49] Tuple pool not found. Clearing relations with cached strings
+[2025-05-23 10:15:49] Trimming disk cache at /workspaces/US-SAST/my-js-db/db-javascript/default/cache in mode clear.
+[2025-05-23 10:15:49] Sequence stamp origin is -6046303134146555062
+[2025-05-23 10:15:49] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-05-23 10:15:49] Unpausing evaluation
+[2025-05-23 10:15:49] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-05-23 10:15:49] Unpausing evaluation
+[2025-05-23 10:15:49] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-05-23 10:15:49] Unpausing evaluation
+[2025-05-23 10:15:49] Trimming completed (13ms): Purged everything.
+[2025-05-23 10:15:49] Scanning for files in /workspaces/US-SAST/my-js-db/trap/javascript
+[2025-05-23 10:15:49] Found 139 TRAP files (13.85 MiB)
+[2025-05-23 10:15:49] [PROGRESS] dataset import> Importing TRAP files
+[2025-05-23 10:15:50] Importing es2016.js.trap.gz (1 of 139)
+[2025-05-23 10:15:50] Importing es2017.js.trap.gz (2 of 139)
+[2025-05-23 10:15:50] Importing es3.js.trap.gz (3 of 139)
+[2025-05-23 10:15:50] Importing es5.js.trap.gz (4 of 139)
+[2025-05-23 10:15:50] Importing es6.js.trap.gz (5 of 139)
+[2025-05-23 10:15:50] Importing es6_collections.js.trap.gz (6 of 139)
+[2025-05-23 10:15:50] Importing intl.js.trap.gz (7 of 139)
+[2025-05-23 10:15:50] Importing proxy.js.trap.gz (8 of 139)
+[2025-05-23 10:15:50] Importing bdd.js.trap.gz (9 of 139)
+[2025-05-23 10:15:50] Importing jquery-3.2.js.trap.gz (10 of 139)
+[2025-05-23 10:15:50] Importing should.js.trap.gz (11 of 139)
+[2025-05-23 10:15:50] Importing vows.js.trap.gz (12 of 139)
+[2025-05-23 10:15:50] Importing assert.js.trap.gz (13 of 139)
+[2025-05-23 10:15:50] Importing assert_legacy.js.trap.gz (14 of 139)
+[2025-05-23 10:15:50] Importing buffer.js.trap.gz (15 of 139)
+[2025-05-23 10:15:50] Importing child_process.js.trap.gz (16 of 139)
+[2025-05-23 10:15:50] Importing cluster.js.trap.gz (17 of 139)
+[2025-05-23 10:15:50] Importing console.js.trap.gz (18 of 139)
+[2025-05-23 10:15:50] Importing constants.js.trap.gz (19 of 139)
+[2025-05-23 10:15:51] Importing crypto.js.trap.gz (20 of 139)
+[2025-05-23 10:15:51] Importing dgram.js.trap.gz (21 of 139)
+[2025-05-23 10:15:51] Importing dns.js.trap.gz (22 of 139)
+[2025-05-23 10:15:51] Importing domain.js.trap.gz (23 of 139)
+[2025-05-23 10:15:51] Importing events.js.trap.gz (24 of 139)
+[2025-05-23 10:15:51] Importing fs.js.trap.gz (25 of 139)
+[2025-05-23 10:15:51] Importing globals.js.trap.gz (26 of 139)
+[2025-05-23 10:15:51] Importing http.js.trap.gz (27 of 139)
+[2025-05-23 10:15:51] Importing https.js.trap.gz (28 of 139)
+[2025-05-23 10:15:51] Importing module.js.trap.gz (29 of 139)
+[2025-05-23 10:15:51] Importing net.js.trap.gz (30 of 139)
+[2025-05-23 10:15:51] Importing os.js.trap.gz (31 of 139)
+[2025-05-23 10:15:51] Importing path.js.trap.gz (32 of 139)
+[2025-05-23 10:15:51] Importing process.js.trap.gz (33 of 139)
+[2025-05-23 10:15:51] Importing punycode.js.trap.gz (34 of 139)
+[2025-05-23 10:15:51] Importing querystring.js.trap.gz (35 of 139)
+[2025-05-23 10:15:51] Importing readline.js.trap.gz (36 of 139)
+[2025-05-23 10:15:51] Importing repl.js.trap.gz (37 of 139)
+[2025-05-23 10:15:51] Importing stream.js.trap.gz (38 of 139)
+[2025-05-23 10:15:51] Importing string_decoder.js.trap.gz (39 of 139)
+[2025-05-23 10:15:51] Importing sys.js.trap.gz (40 of 139)
+[2025-05-23 10:15:51] Importing timers.js.trap.gz (41 of 139)
+[2025-05-23 10:15:51] Importing tls.js.trap.gz (42 of 139)
+[2025-05-23 10:15:51] Importing tty.js.trap.gz (43 of 139)
+[2025-05-23 10:15:51] Importing url.js.trap.gz (44 of 139)
+[2025-05-23 10:15:51] Importing util.js.trap.gz (45 of 139)
+[2025-05-23 10:15:51] Importing v8.js.trap.gz (46 of 139)
+[2025-05-23 10:15:51] Importing vm.js.trap.gz (47 of 139)
+[2025-05-23 10:15:51] Importing zlib.js.trap.gz (48 of 139)
+[2025-05-23 10:15:51] Importing jsshell.js.trap.gz (49 of 139)
+[2025-05-23 10:15:51] Importing rhino.js.trap.gz (50 of 139)
+[2025-05-23 10:15:51] Importing spidermonkey.js.trap.gz (51 of 139)
+[2025-05-23 10:15:51] Importing v8.js.trap.gz (52 of 139)
+[2025-05-23 10:15:51] Importing chrome.js.trap.gz (53 of 139)
+[2025-05-23 10:15:51] Importing fetchapi.js.trap.gz (54 of 139)
+[2025-05-23 10:15:51] Importing fileapi.js.trap.gz (55 of 139)
+[2025-05-23 10:15:51] Importing flash.js.trap.gz (56 of 139)
+[2025-05-23 10:15:52] Importing gecko_css.js.trap.gz (57 of 139)
+[2025-05-23 10:15:52] Importing gecko_dom.js.trap.gz (58 of 139)
+[2025-05-23 10:15:52] Importing gecko_event.js.trap.gz (59 of 139)
+[2025-05-23 10:15:52] Importing gecko_ext.js.trap.gz (60 of 139)
+[2025-05-23 10:15:52] Importing gecko_xml.js.trap.gz (61 of 139)
+[2025-05-23 10:15:52] Importing html5.js.trap.gz (62 of 139)
+[2025-05-23 10:15:52] Importing ie_css.js.trap.gz (63 of 139)
+[2025-05-23 10:15:52] Importing ie_dom.js.trap.gz (64 of 139)
+[2025-05-23 10:15:52] Importing ie_event.js.trap.gz (65 of 139)
+[2025-05-23 10:15:52] Importing ie_vml.js.trap.gz (66 of 139)
+[2025-05-23 10:15:52] Importing intl.js.trap.gz (67 of 139)
+[2025-05-23 10:15:52] Importing iphone.js.trap.gz (68 of 139)
+[2025-05-23 10:15:52] Importing mediasource.js.trap.gz (69 of 139)
+[2025-05-23 10:15:52] Importing page_visibility.js.trap.gz (70 of 139)
+[2025-05-23 10:15:52] Importing streamsapi.js.trap.gz (71 of 139)
+[2025-05-23 10:15:52] Importing url.js.trap.gz (72 of 139)
+[2025-05-23 10:15:52] Importing w3c_anim_timing.js.trap.gz (73 of 139)
+[2025-05-23 10:15:52] Importing w3c_batterystatus.js.trap.gz (74 of 139)
+[2025-05-23 10:15:52] Importing w3c_css.js.trap.gz (75 of 139)
+[2025-05-23 10:15:52] Importing w3c_css3d.js.trap.gz (76 of 139)
+[2025-05-23 10:15:52] Importing w3c_device_sensor_event.js.trap.gz (77 of 139)
+[2025-05-23 10:15:52] Importing w3c_dom1.js.trap.gz (78 of 139)
+[2025-05-23 10:15:52] Importing w3c_dom2.js.trap.gz (79 of 139)
+[2025-05-23 10:15:52] Importing w3c_dom3.js.trap.gz (80 of 139)
+[2025-05-23 10:15:52] Importing w3c_dom4.js.trap.gz (81 of 139)
+[2025-05-23 10:15:52] Importing w3c_elementtraversal.js.trap.gz (82 of 139)
+[2025-05-23 10:15:52] Importing w3c_encoding.js.trap.gz (83 of 139)
+[2025-05-23 10:15:52] Importing w3c_event.js.trap.gz (84 of 139)
+[2025-05-23 10:15:52] Importing w3c_event3.js.trap.gz (85 of 139)
+[2025-05-23 10:15:52] Importing w3c_gamepad.js.trap.gz (86 of 139)
+[2025-05-23 10:15:52] Importing w3c_geolocation.js.trap.gz (87 of 139)
+[2025-05-23 10:15:52] Importing w3c_indexeddb.js.trap.gz (88 of 139)
+[2025-05-23 10:15:52] Importing w3c_midi.js.trap.gz (89 of 139)
+[2025-05-23 10:15:52] Importing w3c_navigation_timing.js.trap.gz (90 of 139)
+[2025-05-23 10:15:52] Importing w3c_permissions.js.trap.gz (91 of 139)
+[2025-05-23 10:15:52] Importing w3c_pointer_events.js.trap.gz (92 of 139)
+[2025-05-23 10:15:52] Importing w3c_range.js.trap.gz (93 of 139)
+[2025-05-23 10:15:52] Importing w3c_requestidlecallback.js.trap.gz (94 of 139)
+[2025-05-23 10:15:52] Importing w3c_rtc.js.trap.gz (95 of 139)
+[2025-05-23 10:15:52] Importing w3c_screen_orientation.js.trap.gz (96 of 139)
+[2025-05-23 10:15:52] Importing w3c_selectors.js.trap.gz (97 of 139)
+[2025-05-23 10:15:52] Importing w3c_serviceworker.js.trap.gz (98 of 139)
+[2025-05-23 10:15:52] Importing w3c_touch_event.js.trap.gz (99 of 139)
+[2025-05-23 10:15:52] Importing w3c_webcrypto.js.trap.gz (100 of 139)
+[2025-05-23 10:15:52] Importing w3c_xml.js.trap.gz (101 of 139)
+[2025-05-23 10:15:52] Importing webgl.js.trap.gz (102 of 139)
+[2025-05-23 10:15:52] Importing webkit_css.js.trap.gz (103 of 139)
+[2025-05-23 10:15:53] Importing webkit_dom.js.trap.gz (104 of 139)
+[2025-05-23 10:15:53] Importing webkit_event.js.trap.gz (105 of 139)
+[2025-05-23 10:15:53] Importing webkit_notifications.js.trap.gz (106 of 139)
+[2025-05-23 10:15:53] Importing webkit_usercontent.js.trap.gz (107 of 139)
+[2025-05-23 10:15:53] Importing webstorage.js.trap.gz (108 of 139)
+[2025-05-23 10:15:53] Importing whatwg_encoding.js.trap.gz (109 of 139)
+[2025-05-23 10:15:53] Importing window.js.trap.gz (110 of 139)
+[2025-05-23 10:15:53] Importing metadata.trap.gz (111 of 139)
+[2025-05-23 10:15:53] Importing .travis.yml.trap.gz (112 of 139)
+[2025-05-23 10:15:53] Importing Gruntfile.js.trap.gz (113 of 139)
+[2025-05-23 10:15:53] Importing store2.js.trap.gz (114 of 139)
+[2025-05-23 10:15:53] Importing index.d.ts.trap.gz (115 of 139)
+[2025-05-23 10:15:53] Importing jquery.js.trap.gz (116 of 139)
+[2025-05-23 10:15:53] Importing qunit.js.trap.gz (117 of 139)
+[2025-05-23 10:15:53] Importing requirejs.js.trap.gz (118 of 139)
+[2025-05-23 10:15:54] Importing package.json.trap.gz (119 of 139)
+[2025-05-23 10:15:54] Importing store.array.js.trap.gz (120 of 139)
+[2025-05-23 10:15:54] Importing store.async.js.trap.gz (121 of 139)
+[2025-05-23 10:15:54] Importing store.bind.js.trap.gz (122 of 139)
+[2025-05-23 10:15:54] Importing store.cache.js.trap.gz (123 of 139)
+[2025-05-23 10:15:54] Importing store.cookie.js.trap.gz (124 of 139)
+[2025-05-23 10:15:54] Importing store.cookies.js.trap.gz (125 of 139)
+[2025-05-23 10:15:54] Importing store.deep.js.trap.gz (126 of 139)
+[2025-05-23 10:15:54] Importing store.dom.js.trap.gz (127 of 139)
+[2025-05-23 10:15:54] Importing store.dot.js.trap.gz (128 of 139)
+[2025-05-23 10:15:54] Importing store.measure.js.trap.gz (129 of 139)
+[2025-05-23 10:15:54] Importing store.old.js.trap.gz (130 of 139)
+[2025-05-23 10:15:54] Importing store.on.js.trap.gz (131 of 139)
+[2025-05-23 10:15:54] Importing store.onlyreal.js.trap.gz (132 of 139)
+[2025-05-23 10:15:54] Importing store.overflow.js.trap.gz (133 of 139)
+[2025-05-23 10:15:54] Importing store.quota.js.trap.gz (134 of 139)
+[2025-05-23 10:15:54] Importing store2.js.trap.gz (135 of 139)
+[2025-05-23 10:15:54] Importing store.html.trap.gz (136 of 139)
+[2025-05-23 10:15:54] Importing store_amd.htm.trap.gz (137 of 139)
+[2025-05-23 10:15:54] Importing store_dom.htm.trap.gz (138 of 139)
+[2025-05-23 10:15:54] Importing store_test.js.trap.gz (139 of 139)
+[2025-05-23 10:15:54] [PROGRESS] dataset import> Merging relations
+[2025-05-23 10:15:54] Merging 1 fragment for 'files'.
+[2025-05-23 10:15:54] Merged 514 bytes for 'files'.
+[2025-05-23 10:15:54] Merging 1 fragment for 'folders'.
+[2025-05-23 10:15:54] Merged 108 bytes for 'folders'.
+[2025-05-23 10:15:54] Merging 1 fragment for 'containerparent'.
+[2025-05-23 10:15:54] Merged 418 bytes for 'containerparent'.
+[2025-05-23 10:15:54] Merging 4 fragments for 'locations_default'.
+[2025-05-23 10:15:54] Merged 1293399 bytes (1.23 MiB) for 'locations_default'.
+[2025-05-23 10:15:54] Merging 4 fragments for 'hasLocation'.
+[2025-05-23 10:15:55] Merged 876172 bytes (855.64 KiB) for 'hasLocation'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'extraction_data'.
+[2025-05-23 10:15:55] Merged 633 bytes for 'extraction_data'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'scopes'.
+[2025-05-23 10:15:55] Merged 5597 bytes (5.47 KiB) for 'scopes'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'comments'.
+[2025-05-23 10:15:55] Merged 44509 bytes (43.47 KiB) for 'comments'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'indentation'.
+[2025-05-23 10:15:55] Merged 53022 bytes (51.78 KiB) for 'indentation'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'numlines'.
+[2025-05-23 10:15:55] Merged 1896 bytes (1.85 KiB) for 'numlines'.
+[2025-05-23 10:15:55] Merging 2 fragments for 'tokeninfo'.
+[2025-05-23 10:15:55] Merged 859263 bytes (839.12 KiB) for 'tokeninfo'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'next_token'.
+[2025-05-23 10:15:55] Merged 25177 bytes (24.59 KiB) for 'next_token'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc'.
+[2025-05-23 10:15:55] Merged 20545 bytes (20.06 KiB) for 'jsdoc'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_tags'.
+[2025-05-23 10:15:55] Merged 95842 bytes (93.60 KiB) for 'jsdoc_tags'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_tag_descriptions'.
+[2025-05-23 10:15:55] Merged 7413 bytes (7.24 KiB) for 'jsdoc_tag_descriptions'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_tag_names'.
+[2025-05-23 10:15:55] Merged 14447 bytes (14.11 KiB) for 'jsdoc_tag_names'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_type_exprs'.
+[2025-05-23 10:15:55] Merged 125863 bytes (122.91 KiB) for 'jsdoc_type_exprs'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'toplevels'.
+[2025-05-23 10:15:55] Merged 286 bytes for 'toplevels'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'stmts'.
+[2025-05-23 10:15:55] Merged 158527 bytes (154.81 KiB) for 'stmts'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'stmt_containers'.
+[2025-05-23 10:15:55] Merged 61277 bytes (59.84 KiB) for 'stmt_containers'.
+[2025-05-23 10:15:55] Merging 2 fragments for 'exprs'.
+[2025-05-23 10:15:55] Merged 759335 bytes (741.54 KiB) for 'exprs'.
+[2025-05-23 10:15:55] Merging 2 fragments for 'enclosing_stmt'.
+[2025-05-23 10:15:55] Merged 148841 bytes (145.35 KiB) for 'enclosing_stmt'.
+[2025-05-23 10:15:55] Merging 2 fragments for 'expr_containers'.
+[2025-05-23 10:15:55] Merged 148832 bytes (145.34 KiB) for 'expr_containers'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'literals'.
+[2025-05-23 10:15:55] Merged 123690 bytes (120.79 KiB) for 'literals'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'variables'.
+[2025-05-23 10:15:55] Merged 57494 bytes (56.15 KiB) for 'variables'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'bind'.
+[2025-05-23 10:15:55] Merged 48624 bytes (47.48 KiB) for 'bind'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'scopenodes'.
+[2025-05-23 10:15:55] Merged 11068 bytes (10.81 KiB) for 'scopenodes'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'scopenesting'.
+[2025-05-23 10:15:55] Merged 7161 bytes (6.99 KiB) for 'scopenesting'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'decl'.
+[2025-05-23 10:15:55] Merged 20481 bytes (20.00 KiB) for 'decl'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_arguments_object'.
+[2025-05-23 10:15:55] Merged 5174 bytes (5.05 KiB) for 'is_arguments_object'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'entry_cfg_node'.
+[2025-05-23 10:15:55] Merged 11618 bytes (11.35 KiB) for 'entry_cfg_node'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'exit_cfg_node'.
+[2025-05-23 10:15:55] Merged 11618 bytes (11.35 KiB) for 'exit_cfg_node'.
+[2025-05-23 10:15:55] Merging 2 fragments for 'successor'.
+[2025-05-23 10:15:55] Merged 323390 bytes (315.81 KiB) for 'successor'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_externs'.
+[2025-05-23 10:15:55] Merged 222 bytes for 'is_externs'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'filetype'.
+[2025-05-23 10:15:55] Merged 315 bytes for 'filetype'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'extraction_time'.
+[2025-05-23 10:15:55] Merged 18044 bytes (17.62 KiB) for 'extraction_time'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_prefix_qualifier'.
+[2025-05-23 10:15:55] Merged 1894 bytes (1.85 KiB) for 'jsdoc_prefix_qualifier'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_errors'.
+[2025-05-23 10:15:55] Merged 1157 bytes (1.13 KiB) for 'jsdoc_errors'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_record_field_name'.
+[2025-05-23 10:15:55] Merged 1596 bytes (1.56 KiB) for 'jsdoc_record_field_name'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jsdoc_has_new_parameter'.
+[2025-05-23 10:15:55] Merged 35 bytes for 'jsdoc_has_new_parameter'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'properties'.
+[2025-05-23 10:15:55] Merged 5107 bytes (4.99 KiB) for 'properties'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'regexpterm'.
+[2025-05-23 10:15:55] Merged 16932 bytes (16.54 KiB) for 'regexpterm'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'regexp_const_value'.
+[2025-05-23 10:15:55] Merged 6517 bytes (6.36 KiB) for 'regexp_const_value'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'guard_node'.
+[2025-05-23 10:15:55] Merged 22663 bytes (22.13 KiB) for 'guard_node'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_module'.
+[2025-05-23 10:15:55] Merged 91 bytes for 'is_module'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_nodejs'.
+[2025-05-23 10:15:55] Merged 89 bytes for 'is_nodejs'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-05-23 10:15:55] Merged 19 bytes for 'sourceLocationPrefix'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'yaml_scalars'.
+[2025-05-23 10:15:55] Merged 54 bytes for 'yaml_scalars'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'yaml'.
+[2025-05-23 10:15:55] Merged 110 bytes for 'yaml'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'yaml_locations'.
+[2025-05-23 10:15:55] Merged 42 bytes for 'yaml_locations'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_greedy'.
+[2025-05-23 10:15:55] Merged 160 bytes for 'is_greedy'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_capture'.
+[2025-05-23 10:15:55] Merged 145 bytes for 'is_capture'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'array_size'.
+[2025-05-23 10:15:55] Merged 701 bytes for 'array_size'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'jump_targets'.
+[2025-05-23 10:15:55] Merged 176 bytes for 'jump_targets'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_es2015_module'.
+[2025-05-23 10:15:55] Merged 19 bytes for 'is_es2015_module'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'local_type_names'.
+[2025-05-23 10:15:55] Merged 73 bytes for 'local_type_names'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'typeexprs'.
+[2025-05-23 10:15:55] Merged 1216 bytes (1.19 KiB) for 'typeexprs'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'typedecl'.
+[2025-05-23 10:15:55] Merged 64 bytes for 'typedecl'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_abstract_member'.
+[2025-05-23 10:15:55] Merged 60 bytes for 'is_abstract_member'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'typebind'.
+[2025-05-23 10:15:55] Merged 114 bytes for 'typebind'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_optional_parameter_declaration'.
+[2025-05-23 10:15:55] Merged 34 bytes for 'is_optional_parameter_declaration'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_method'.
+[2025-05-23 10:15:55] Merged 36 bytes for 'is_method'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'has_readonly_keyword'.
+[2025-05-23 10:15:55] Merged 25 bytes for 'has_readonly_keyword'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'has_declare_keyword'.
+[2025-05-23 10:15:55] Merged 21 bytes for 'has_declare_keyword'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'char_class_escape'.
+[2025-05-23 10:15:55] Merged 226 bytes for 'char_class_escape'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'is_inverted'.
+[2025-05-23 10:15:55] Merged 45 bytes for 'is_inverted'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'backref'.
+[2025-05-23 10:15:55] Merged 30 bytes for 'backref'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'range_quantifier_lower_bound'.
+[2025-05-23 10:15:55] Merged 60 bytes for 'range_quantifier_lower_bound'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'range_quantifier_upper_bound'.
+[2025-05-23 10:15:55] Merged 60 bytes for 'range_quantifier_upper_bound'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'json'.
+[2025-05-23 10:15:55] Merged 274 bytes for 'json'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'json_locations'.
+[2025-05-23 10:15:55] Merged 120 bytes for 'json_locations'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'json_literals'.
+[2025-05-23 10:15:55] Merged 172 bytes for 'json_literals'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'json_properties'.
+[2025-05-23 10:15:55] Merged 159 bytes for 'json_properties'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'toplevel_parent_xml_node'.
+[2025-05-23 10:15:55] Merged 34 bytes for 'toplevel_parent_xml_node'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'xmlElements'.
+[2025-05-23 10:15:55] Merged 305 bytes for 'xmlElements'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'xmllocations'.
+[2025-05-23 10:15:55] Merged 242 bytes for 'xmllocations'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'xmlAttrs'.
+[2025-05-23 10:15:55] Merged 332 bytes for 'xmlAttrs'.
+[2025-05-23 10:15:55] Merging 1 fragment for 'xmlComments'.
+[2025-05-23 10:15:55] Merged 82 bytes for 'xmlComments'.
+[2025-05-23 10:15:55] Saving string and id pools to disk.
+[2025-05-23 10:15:55] Finished importing TRAP files.
+[2025-05-23 10:15:55] Read 73.22 MiB of uncompressed TRAP data.
+[2025-05-23 10:15:55] Uncompressed relation data size: 22.18 MiB
+[2025-05-23 10:15:55] Relation data size: 5.15 MiB (merge rate: 5.07 MiB/s)
+[2025-05-23 10:15:55] String pool size: 5.53 MiB
+[2025-05-23 10:15:55] ID pool size: 21.00 MiB
+[2025-05-23 10:15:55] [PROGRESS] dataset import> Finished writing database (relations: 5.15 MiB; string pool: 5.53 MiB).
+[2025-05-23 10:15:55] Pausing evaluation to close the cache at sequence stamp o+181
+[2025-05-23 10:15:55] The disk cache is freshly trimmed; leave it be.
+[2025-05-23 10:15:55] Unpausing evaluation
+[2025-05-23 10:15:55] Plumbing command codeql dataset import completed.
+[2025-05-23 10:15:55] [PROGRESS] database finalize> TRAP import complete (6.2s).
+[2025-05-23 10:15:55] Running plumbing command: codeql database cleanup -- /workspaces/US-SAST/my-js-db
+[2025-05-23 10:15:55] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-05-23 10:15:55] [PROGRESS] database cleanup> TRAP files cleaned up (10ms).
+[2025-05-23 10:15:55] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-05-23 10:15:55] [PROGRESS] database cleanup> Scratch directory cleaned up (0ms).
+[2025-05-23 10:15:55] Running plumbing command: codeql dataset cleanup -- /workspaces/US-SAST/my-js-db/db-javascript
+[2025-05-23 10:15:55] [PROGRESS] dataset cleanup> Cleaning up dataset in /workspaces/US-SAST/my-js-db/db-javascript.
+[2025-05-23 10:15:55] Trimming disk cache at /workspaces/US-SAST/my-js-db/db-javascript/default/cache in mode trim.
+[2025-05-23 10:15:55] Sequence stamp origin is -6046303107872573759
+[2025-05-23 10:15:55] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-05-23 10:15:55] Unpausing evaluation
+[2025-05-23 10:15:55] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-05-23 10:15:55] Unpausing evaluation
+[2025-05-23 10:15:55] Trimming completed (5ms): Trimmed disposable data from cache.
+[2025-05-23 10:15:55] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-05-23 10:15:55] The disk cache is freshly trimmed; leave it be.
+[2025-05-23 10:15:55] Unpausing evaluation
+[2025-05-23 10:15:55] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-05-23 10:15:55] [PROGRESS] dataset cleanup> Finalizing dataset in /workspaces/US-SAST/my-js-db/db-javascript
+[2025-05-23 10:15:55] [DETAILS] dataset cleanup> Finished deleting ID pool from /workspaces/US-SAST/my-js-db/db-javascript (7ms).
+[2025-05-23 10:15:55] Plumbing command codeql dataset cleanup completed.
+[2025-05-23 10:15:55] Plumbing command codeql database cleanup completed with status 0.
+[2025-05-23 10:15:55] [PROGRESS] database finalize> Finished zipping source archive (398.29 KiB).
+[2025-05-23 10:15:55] Plumbing command codeql database finalize completed.
+[2025-05-23 10:15:55] [PROGRESS] database create> Successfully created database at /workspaces/US-SAST/my-js-db.
+[2025-05-23 10:15:55] Terminating normally.
